@@ -78,6 +78,8 @@
 
                         executeStateEvent(currentState, 'end', newState);
                         executeStateEvent(newState, 'start', prevState);
+                        
+                        $('body').trigger('offline-state-change', [newState, prevState]);
                     }
                 }
 
@@ -102,6 +104,12 @@
 
                             currentState = states.online;
                         }
+                    },
+                    isOnline: function() {
+                        return currentState === states.online;
+                    },
+                    requestQueueCount: function() {
+                        return failedRequestLog.length;
                     }
                 };
 
