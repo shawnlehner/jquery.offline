@@ -57,7 +57,7 @@ $.offline.init({
   </tbody>
 </table>
 
-#### Available Methods
+## Methods
 There are a handfull of methods exposed by the $.offline object that you can use to interact with the script.
  <table>
   <tbody>
@@ -85,3 +85,17 @@ There are a handfull of methods exposed by the $.offline object that you can use
     </tr>
   </tbody>
 </table>
+## Credit and Background
+I was inspired to create this script by the [Hubspot/Offline](https://github.com/HubSpot/offline) script. I found it and I really loved the concept. Unfortunately, I couldn't get it to work quite the way I wanted and it seemed to have a lot of extra bloat that I was never going to be using in my application. I decided to create an extremely light weight script that did the following:
+1. Automatically monitor my ajax requests and queue them in the event of a network outage.
+2. Provide some basic mechanisms for knowing if the app has a real-world connection to my services without additional overhead of ping requests.
+
+## Known Issues
+There aren't any reported bugs yet, but there are a few issues that I already know could effect this script.
+1. This only handles the requests that go throug the jQuery.ajax method. Standard XHR requests are NOT going to be queued.
+2. If you are making a synchronous ajax request, you are going to have problems. But why would you want to do that anyway :)?
+
+## Roadmap
+Here are some things I plan on doing in the near future.
+1. Provide a basic grunt script to minify the script and minified versions in a /dist directory
+2. Add some off-the-shelf interface options for offline indicators. These will be inspired by the ones in the [Hubspot/Offline](https://github.com/HubSpot/offline) script  
