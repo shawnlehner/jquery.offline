@@ -1,5 +1,4 @@
-jQuery.offline
---------------
+# jQuery.offline
 jQuery.offline is a lightweight jquery plugin to handle connection interruptions within your web or hybrid application.
 
 Once initialize, jQuery.offline will intercept all jQuery.ajax requests and look for network related errors. If a network related error is detected, the request will automatically be retried a set number of times. If all of these requests fail, the request will be queued and the script will go into offline mode. Any request made while offline will be queued up and retried on a set interval.
@@ -20,7 +19,7 @@ $.offline.init({
     notificationAttempts: 5
 });
 ```
-### Available Options
+#### Available Options
 <table>
   <tbody>
     <tr>
@@ -54,6 +53,35 @@ $.offline.init({
         </code>
       </td>
       <td>Logic to decide if the request was a network error or not.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Available Methods
+There are a handfull of methods exposed by the $.offline object that you can use to interact with the script.
+ <table>
+  <tbody>
+    <tr>
+      <th>Method</th>
+      <th align="center">Return Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>init</td>
+      <td align="center">void</td>
+      <td>
+        Initializes the offline script and replaces jQuery functions. This method can be called multiple times if you want to updated settings after it has been initialized.
+      </td>
+    </tr>
+    <tr>
+      <td>isOnline</td>
+      <td align="center">bool</td>
+      <td>Returns the current state of your application.</td>
+    </tr>
+    <tr>
+      <td>requestQueueCount</td>
+      <td align="center">int</td>
+      <td>The number of requests that are currently queued for retry.</td>
     </tr>
   </tbody>
 </table>
