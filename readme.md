@@ -45,11 +45,13 @@ $.offline.init({
       <td>isNetworkError</td>
       <td align="center">function</td>
       <td>
-```
-function (xhr) { 
-    return xhr.status == 0 || (xhr.status >= 400 && xhr.status < 500); 
-}
-```
+        <pre>
+            <code>
+                function (xhr) { 
+                    return xhr.status == 0 || (xhr.status >= 400 && xhr.status < 500); 
+                }
+            </code>
+        </pre>
       </td>
       <td>Logic to decide if the request was a network error or not.</td>
     </tr>
