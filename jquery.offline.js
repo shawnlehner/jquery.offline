@@ -102,7 +102,7 @@
                             jqajax = $.ajax;
                             $.ajax = handleAjaxRequest;
 
-                            currentState = states.online;
+                            goToState(states.online);
                         }
                     },
                     isOnline: function() {
