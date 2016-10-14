@@ -27,12 +27,12 @@
 
                 stateLogic[states.online] = {
                     start: function () {
-                        $('body').addClass('online');
+                        $('body').removeClass('offline').addClass('online');
 
                         // Requeue any pending requests now that we are back online
                         if (failedRequestLog.length > 0) {
                             var itemsToQueue = failedRequestLog.splice(0, failedRequestLog.length);
-                            for (var i = 0; i < itemsToQueue; i++) {
+                            for (var i = 0; i < itemsToQueue.length; i++) {
                                 performRequest(itemsToQueue[i]);
                             }
                         }
@@ -58,6 +58,9 @@
                     }
                 }
                 stateLogic[states.offline] = {
+                    end: function() {
+                        $('body').removeClass('offline');
+                    },
                     start: function () {
                         var retryLoop = function () {
                             setTimeout(function () {
@@ -65,7 +68,7 @@
                             }, settings.retryInterval * 1000);
                         };
 
-                        $('body').addClass('offline');
+                        $('body').removeClass('online').addClass('offline');
                         retryLoop();
                     }
                 }
@@ -120,7 +123,7 @@
                         url = undefined;
                     }
 
-                    var reqData = { url: url, options: options };
+                    var reqData = { url: options.url, options: options };
                     performRequest(reqData);
                 }
 
@@ -134,6 +137,8 @@
                         success: options.success,
                         error: options.error
                     };
+
+                    console.log(reqData);
 
                     if (typeof callback !== 'function') {
                         callback = function (success) {
