@@ -85,6 +85,7 @@ There are a handfull of methods exposed by the $.offline object that you can use
     </tr>
   </tbody>
 </table>
+
 ## Credit and Background
 I was inspired to create this script by the [Hubspot/Offline](https://github.com/HubSpot/offline) script. I found it and I really loved the concept. Unfortunately, I couldn't get it to work quite the way I wanted and it seemed to have a lot of extra bloat that I was never going to be using in my application. I decided to create an extremely light weight script that did the following:
 
